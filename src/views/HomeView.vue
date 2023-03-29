@@ -7,7 +7,7 @@
               <v-col cols="5">
                 <div style="position: relative" class="mt-16">
                 <h1 class="text-grey">Hello,welcome to</h1>
-                <h1 class="text-white">Sym-Eve</h1>
+                <h1 class="text-white">SymBooth</h1>
                 <span class="text-indigo">Demo-1</span><br />
                 <v-btn title dark class="text-indigo mt-8" variant="outlined">Contact Us</v-btn>
               </div>
@@ -24,7 +24,53 @@
               </v-col>
             </v-row>
         </div>
-        <v-col cols="12" sm="12" id="services">
+        
+      <v-col cols="12" class="padd" id="portfolio">
+        <div class="first" id="project">
+          <v-row>
+            <v-col cols="12" id="about">
+              <div class="child">
+                <v-btn
+                  icon="fas fa-laptop"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">Web Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+              <div class="child">
+                <v-btn
+                  icon="fas fa-mobile-alt"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">App Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+              <div class="child">
+                <v-btn
+                  icon="fas fa-camera"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">Creative Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+            </v-col>
+          </v-row>
+          <v-divider></v-divider>
+        </div>
+      </v-col>
+      <v-col cols="12" sm="12" id="services">
         <div class="d-flex justify-center mb-6">
           <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
           <v-btn class="mr-2" variant="tonal">Web Design</v-btn>
@@ -40,6 +86,13 @@
                 <v-hover v-slot="{isHovering, props}">
                   <v-card :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
                     <v-img :src="item.img" height="225px" cover></v-img>
+                    <v-card-title>Event {{ i+1 }}</v-card-title>
+                    <v-card-subtitle>
+                    Organizer : {{item.organizer}} <br /> {{item.date}}
+                    </v-card-subtitle>
+                    <v-card-text>
+                    Event : {{ item.text }}
+                    </v-card-text>
                   </v-card>
                 </v-hover>
               </v-col>
@@ -92,15 +145,15 @@
         <div class="hire">
           <v-row>
             <v-col cols="12" sm="8">
-              <h1 class="mt-9">Hire me for your awesome project</h1>
+              <h1 class="mt-9">Wanna Create an Event!!</h1>
               <p class="text-grey">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-                itaque, eaque molestiae deleniti, earum voluptate eos id dicta
-                at, blanditiis
+                For organizing your personalised evnet at your college ?
+                Just Fill Up some details and publish your event at our site,
+                And let others know about it and book it! 
               </p>
             </v-col>
             <v-col cols="12" sm="4">
-              <v-btn color="#FBDF7E" class="mt-15">Hire Me</v-btn>
+              <v-btn color="#FBDF7E" class="mt-15">Organize Event</v-btn>
             </v-col>
           </v-row>
         </div>
@@ -117,7 +170,7 @@
                 variant="outlined"
               ></v-btn
               ><br />
-              <span class="text-caption">Your Street SYO,yourArea Dream </span
+              <span class="text-caption">Flexi, SIT, Pune </span
               ><br />
               <v-btn
                 icon="fas fa-phone-alt"
@@ -135,18 +188,17 @@
                 variant="outlined"
               ></v-btn
               ><br />
-              <span class="text-caption">aaeideapro@gmail.com </span> <br />
-              <span class="text-caption">aaeideapro@gmail.com </span> <br />
+              <span class="text-caption">symeveinfo@gmail.com </span> <br />
+              <span class="text-caption">symeveinfo@gmail.com </span> <br />
             </div>
           </v-col>
           <v-col cols="12" sm="8">
             <h1 class="mt-8">Send your message</h1>
             <v-divider></v-divider>
             <span class="text-caption"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-              fugiat officia, odio eaque exercitationem libero nesciunt placeat,
-              repellat obcaecati sed tenetur! Est labore aliquam amet
-              consequatur necessitatibus fugit obcaecati facilis!</span
+              >Anything you wanna ask, you can send your query here!!<br />
+              Feel free to contact us, and suggest any suggestions if any.<br />
+              Our Team will work on it as early as possible.</span
             >
             <v-row class="mt-10">
               <v-col cols="12" sm="6">
@@ -190,22 +242,22 @@ export default defineComponent({
       slider2: 50,
       items: [
         {
-          img: "i3.jpg",
+          img: "i3.jpg",text: "CyberSecurity Event",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          img: "i4.jpg",
+          img: "i4.jpg",text: "TechFest",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
         {
-          img: "i5.jpg",
+          img: "i5.jpg",text: "Reverb",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          img: "i6.jpeg",
+          img: "i6.jpeg",text: "AIML Techfest",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          img: "i9.jpg",
+          img: "i9.jpg",text: "CyberSecurity Event",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          img: "i8.jpg",
+          img: "i8.jpg",text: "CyberSecurity Event",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
       ],
     }
@@ -256,5 +308,35 @@ export default defineComponent({
   height: 200px;
   background-color: #5910d7;
   border-radius: 50% 50% 50% 50% / 60% 60% 60% 60%;
+}
+.first {
+  width: 100%;
+  height: 280px;
+  text-align: center;
+  padding: 2rem 2rem;
+}
+.child {
+  display: inline-block;
+  padding: 2rem 1rem;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 8px;
+}
+.imgHover {
+  padding: 0 200px;
+}
+.pre {
+  width: 100%;
+  height: 380px;
+  text-align: center;
+  padding: 0 200px;
+  background-color: #f5f5f5;
+}
+.hire {
+  width: 100%;
+  height: 200px;
+  padding: 0 200px;
+  background-color: #e9e9e9;
+  margin-top: -24px;
 }
 </style>

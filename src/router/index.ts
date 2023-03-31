@@ -24,11 +24,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/loginpage',
     name: 'loginpage',
     component: () => import('../views/LoginPage.vue')
-  },
-  {
-    path: '/signuppage',
-    name: 'signuppage',
-    component: () => import('../views/SignupPage.vue')
   }
 ]
 

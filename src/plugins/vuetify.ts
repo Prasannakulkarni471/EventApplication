@@ -10,7 +10,7 @@ import { createVuetify } from 'vuetify'
 export default createVuetify(
   {
     icons: {
-      defaultSet: 'fa',
+      defaultSet: 'fa' || 'md',
       aliases,
       sets: {
         fa,

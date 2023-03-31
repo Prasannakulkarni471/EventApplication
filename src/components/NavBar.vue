@@ -6,7 +6,7 @@
        <v-spacer></v-spacer>
        <v-btn text @click="scroll('home')" class="text-indigo">Home</v-btn>
        <v-btn text @click="scroll('about')" >About</v-btn>
-       <router-link :to="{ path: '/EventsPage' }"><v-btn text class="text-white" >Event</v-btn></router-link>
+       <router-link :to="{ path: '/LoginPage' }"><v-btn text class="text-white" >Login/Signup</v-btn></router-link>
        <v-btn text @click="scroll('services')" >Services</v-btn>
        <v-btn text @click="scroll('page')" >Page</v-btn>
        <v-btn text @click="scroll('blog')" >Blog</v-btn>

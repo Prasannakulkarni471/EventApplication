@@ -1,47 +1,35 @@
 <template>
-  <div>
-    <v-app-bar app color="black" dark flat class="px-12">
-      <v-btn>
-        <v-icon color="indigo" left class="mr-2">fas fa-signature</v-icon>SymBooth
-      </v-btn>
-      <v-app-bar-title class="center">SymBooth Events</v-app-bar-title>
-      <router-link :to="{ path: '/' }"><v-btn text>Home</v-btn></router-link>
-    </v-app-bar>
-  </div>
-  <div class="hire">
-    <v-row>
-      <v-col cols="12" sm="8">
-        <h1 class="mt-9">Enter Your Institute</h1>
-        <p class="text-grey">
-          To list organised events or fests in your college/institute<br>
-          Enter you institue name:
-        </p>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-text-field label="Search" append-icon="mdi-domain"></v-text-field>
-      </v-col>
-    </v-row>
-  </div>
+  <v-app>
+    <SideBar />
+    <div :style="{ 'margin-left': sidebarWidth }">
+      <router-view />
+      <DashBoard />
+      <FooterBar />
+    </div>
+  </v-app>
 </template>
 
 <script>
-export default {
+  import DashBoard from '../components/DashBoard'
+  import FooterBar from '../components/FooterBar'
+  import SideBar from '../components/sidebar/SideBar'
+  import { sidebarWidth } from '@/components/sidebar/state'
 
-}
+  export default {
+    name: 'EventHome',
+
+    components: {
+      SideBar,
+      FooterBar,
+      DashBoard
+    },
+    setup() {
+      return { sidebarWidth }
+    }
+  }
 </script>
-
-<style lang="scss" scoped>
-.center {
-  text-align: center
-}
-
-.hire {
-  width: 100%;
-  height: 250px;
-  padding: 0 200px;
-  background-color: #e9e9e9;
-  margin-top: -24px;
+<style scoped>
+.index{
+  z-index: 9999;
 }
 </style>

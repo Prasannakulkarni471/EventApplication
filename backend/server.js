@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
+mongoose.set('strictQuery',false)
 
 mongoose.connect("mongodb+srv://ishansiddiqui123:12345@symbooth.ncgzyvk.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,

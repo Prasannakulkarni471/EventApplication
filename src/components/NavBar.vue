@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar app color="black" dark flat class="px-12">
+    <v-app-bar app color="black" dark flat class="app-bar">
        <v-btn>
         <v-icon color="indigo" left class="mr-2">fas fa-signature</v-icon>SymBooth
        </v-btn> 
@@ -26,5 +26,5 @@
 </script>
 
 <style lang="scss" scoped>
-
+        
 </style>

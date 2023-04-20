@@ -58,99 +58,27 @@
           </v-card>
         </v-col>
       </v-row>
+
       <v-row>
-        <v-card class="mt-n6 pr-0" width="300">
-          <v-list v-model:opened="open">
-            <v-list-item prepend-icon="mdi-home" title="Customize your Filters"></v-list-item>
-
-            <v-list-group value="Filters">
-              <template v-slot:activator="{ props }">
-                <v-list-item v-bind="props" prepend-icon="mdi-account-circle" title="Filters"></v-list-item>
-              </template>
-
-              <v-list-group value="Dates">
-                <template v-slot:activator="{ props }">
-                  <v-list-item v-bind="props" title="Dates"></v-list-item>
-                </template>
-
-                <v-list-item v-for="([title, icon], i) in admins" :key="i" :title="title" :prepend-icon="icon"
-                  :value="title"></v-list-item>
-              </v-list-group>
-
-              <v-list-group value="Actions">
-                <template v-slot:activator="{ props }">
-                  <v-list-item v-bind="props" title="Languages"></v-list-item>
-                </template>
-
-                <v-list-item v-for="([title, icon], i) in cruds" :key="i" :value="title" :title="title"
-                  :prepend-icon="icon"></v-list-item>
-              </v-list-group>
-              <v-list-group value="Actions">
-                <template v-slot:activator="{ props }">
-                  <v-list-item v-bind="props" title="categories"></v-list-item>
-                </template>
-
-                <v-list-item v-for="([title, icon], i) in cruds" :key="i" :value="title" :title="title"
-                  :prepend-icon="icon"></v-list-item>
-              </v-list-group>
-              <v-list-group value="Actions">
-                <template v-slot:activator="{ props }">
-                  <v-list-item v-bind="props" title="More Filter"></v-list-item>
-                </template>
-
-                <v-list-item v-for="([title, icon], i) in cruds" :key="i" :value="title" :title="title"
-                  :prepend-icon="icon"></v-list-item>
-              </v-list-group>
-              <v-list-group value="Actions">
-                <template v-slot:activator="{ props }">
-                  <v-list-item v-bind="props" title="Price"></v-list-item>
-                </template>
-
-                <v-list-item v-for="([title, icon], i) in cruds" :key="i" :value="title" :title="title"
-                  :prepend-icon="icon"></v-list-item>
-              </v-list-group>
-            </v-list-group>
-          </v-list>
-        </v-card>
-        <v-col cols="9" class="mt-n3">
-          <v-row>
-            <v-col cols="12" sm="4" v-for="(clothe, i) in clothes" :key="i" :class="clothe.class">
-              <v-hover v-slot:default="{ hover }">
-                <v-card height="300" align="center" flat outlined tile>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="black" small dark>{{ clothe.sold }}</v-btn>
-                  </v-card-actions>
-                  <router-link :to="{ path: '/EventDesc' }"><v-img :src="clothe.image" width="200" height="200" contain></v-img></router-link>
-                  <v-card-text class="mt-n4">
-                    <strong :class="hover ? 'red--text' : 'black--text'">{{
-                      clothe.title
-                    }}</strong>
-                  </v-card-text>
-                  <v-expand-transition>
-                    <div v-if="hover" class="
-                            d-flex
-                            transition-fast-in-fast-out
-                            blue
-                            v-card--reveal
-                            display-3
-                            white--text
-                          " style="height: 100%">
-                      <v-btn rounded color="white">
-                        <v-icon>mdi-cart-outlined</v-icon>
-                        Buy
-                      </v-btn>
-                      <v-btn fab small color="white" class="ml-2">
-                        <v-icon color="black">mdi-content-copy</v-icon>
-                      </v-btn>
-                      <v-btn fab small color="white" class="ml-2">
-                        <v-icon color="black">mdi-heart-outline</v-icon>
-                      </v-btn>
-                    </div>
-                  </v-expand-transition>
-                </v-card>
-              </v-hover>
-            </v-col>
+        
+        <v-col cols="12" class="imgHover">
+          <v-row class="fill-height" align="center" justify="center">
+            <template v-for="(clothe, i) in clothes" :key="i">
+              <v-col cols="12" md="4">
+                <v-hover v-slot="{isHovering, props}">
+                  <v-card :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
+                    <router-link :to="{ path: '/eventspage/'+clothe.id }"><v-img :src="clothe.image" height="225px" cover></v-img></router-link>
+                    <v-card-title>Event {{ i+1 }}</v-card-title>
+                    <v-card-subtitle>
+                    Organizer : {{clothe.class}} <br /> {{clothe.class}}
+                    </v-card-subtitle>
+                    <v-card-text>
+                    Event : {{ clothe.desc }}
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
+              </v-col>
+            </template>
           </v-row>
         </v-col>
       </v-row>
@@ -192,90 +120,114 @@ export default {
     ],
     clothes: [
         {
+          id: 1,
           class: "pa-0",
           sold: "-20%",
           image: "1.png",
-          title: "KD 8 EXT",
+          title: "Event 1",
           price: "$ 145.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 2,
           class: "pa-0",
           sold: "-30%",
           image: "2.png",
-          title: "Jordan Galaxy",
+          title: "Event 2",
           price: "$ 599.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 3,
           class: "py-0 pl-0",
           sold: "-17%",
           image: "3.png",
-          title: "Nike SB Trainerendor Leathe",
+          title: "Event 3",
           price: "$ 190.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
   
         {
+          id: 4,
           class: "pa-0",
           sold: "-22%",
           image: "4.png",
-          title: "Air Jordan Spike 40 iD",
+          title: "Event 4",
           price: "$ 220.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 5,
           class: "pa-0",
           sold: "-18%",
           image: "5.png",
           title: "Nike Air Footscape Magista Flyknit",
           price: "$ 235.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 6,
           class: "py-0 pl-0",
           sold: "-40%",
           image: "6.png",
           title: "Nike Air Zoom Huarache 2k4",
           price: "$ 190.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
   
         {
+          id: 7,
           class: "pa-0",
           sold: "-13%",
           image: "7.png",
           title: "Jordan Horizon",
           price: "$ 230.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 8,
           class: "pa-0",
           sold: "-15%",
           image: "8.png",
           title: "Air Jordan xx9 Low",
           price: "$ 185.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 9,
           class: "py-0 pl-0",
           sold: "-10%",
           image: "9.png",
           title: "LeBron XIII Premium AS iD",
           price: "$ 265.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 10,
           class: "pa-0",
           sold: "-19%",
           image: "10.png",
           title: "Air Jordan 1 Retro Hight Nouveau",
           price: "$ 190.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 11,
           class: "pa-0",
           sold: "-16%",
           image: "11.png",
           title: "Nike Air Presto",
           price: "$ 175.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
         {
+          id: 12,
           class: "py-0 pl-0",
           sold: "-10%",
           image: "12.png",
           title: "KD 8 Premium AS iD",
           price: "$ 245.00",
+          desc: "Hello this event is going to be one of the awesome events"
         },
       ]
   }),

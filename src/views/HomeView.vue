@@ -1,6 +1,6 @@
 <template>
   <v-app id="home">
-    <NavBar />
+    <NavBar  />
     <v-container fluid>
         <div class="head">
             <v-row>
@@ -85,7 +85,7 @@
               <v-col cols="12" md="4">
                 <v-hover v-slot="{isHovering, props}">
                   <v-card :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
-                    <v-img :src="item.img" height="225px" cover></v-img>
+                    <router-link :to="{ path: '/eventspage/'+item.id }"><v-img :src="item.img" height="225px" cover></v-img></router-link>
                     <v-card-title>Event {{ i+1 }}</v-card-title>
                     <v-card-subtitle>
                     Organizer : {{item.organizer}} <br /> {{item.date}}
@@ -164,7 +164,7 @@
             <div class="child">
               <h1>Contact info.</h1>
               <v-btn
-                icon="fas fa-map-marker-alt"
+                icon="mdi-home"
                 color=""
                 class="mt-10"
                 variant="outlined"
@@ -173,7 +173,7 @@
               <span class="text-caption">Flexi, SIT, Pune </span
               ><br />
               <v-btn
-                icon="fas fa-phone-alt"
+                icon="mdi-phone"
                 color=""
                 class="mt-10"
                 variant="outlined"
@@ -182,7 +182,7 @@
               <span class="text-caption">00235 - 6521 </span> <br />
               <span class="text-caption">00235 - 6521 </span> <br />
               <v-btn
-                icon="fas fa-envelope"
+                icon="mdi-mail"
                 color=""
                 class="mt-10"
                 variant="outlined"
@@ -225,6 +225,11 @@
           </v-col>
         </v-row>
       </v-col>
+      <v-col class="hirefoot">
+        <v-row >
+      <FooterBar />
+    </v-row>
+    </v-col>
     </v-container>
   </v-app>
 </template>
@@ -234,7 +239,7 @@ import { defineComponent } from 'vue';
 
 // Components
 import NavBar from '@/components/NavBar.vue'
-
+import FooterBar from '@/components/FooterBar.vue'
 export default defineComponent({
   name: 'HomeView',
   setup(){
@@ -242,28 +247,29 @@ export default defineComponent({
       slider2: 50,
       items: [
         {
-          img: "i3.jpg",text: "CyberSecurity Event",organizer: "SOCS", date: "13 Mar 2023",
+          id:1,img: "i3.jpg",text: "CyberSecurity Event",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          img: "i4.jpg",text: "TechFest",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
+          id:2,img: "i4.jpg",text: "TechFest",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
         {
-          img: "i5.jpg",text: "Reverb",organizer: "SIT, Pune", date: "16 Mar 2023",
+          id:3,img: "i5.jpg",text: "Reverb",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          img: "i6.jpeg",text: "AIML Techfest",organizer: "SOCS", date: "13 Mar 2023",
+          id:4,img: "i6.jpeg",text: "AIML Techfest",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          img: "i9.jpg",text: "CyberSecurity Event",organizer: "SIT, Pune", date: "16 Mar 2023",
+          id:5,img: "i9.jpg",text: "CyberSecurity Event",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          img: "i8.jpg",text: "CyberSecurity Event",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
+          id:6,img: "i8.jpg",text: "CyberSecurity Event",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
       ],
     }
   },
   components: {
-    NavBar
+    NavBar,
+    FooterBar
   },
 });
 </script>
@@ -338,5 +344,13 @@ export default defineComponent({
   padding: 0 200px;
   background-color: #e9e9e9;
   margin-top: -24px;
+}
+.hirefoot{
+  width: 100%;
+  height: 500px;
+  padding-top: 50px;
+  padding-left: 10px;
+  background-color: #e9e9e9;
+  margin-top: 0px;
 }
 </style>

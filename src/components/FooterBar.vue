@@ -1,8 +1,8 @@
-<template>
-  <v-footer dark padless>
-    <v-card flat tile class="black white--text py-12 px-5" width="100%">
-      <v-row>
-        <v-col cols="12" sm="4">
+<template >
+  <v-footer dark padless >
+    <v-card flat tile class="black white--text py-12 px-5" width="100%" >
+      <v-row >
+        <v-col cols="12" sm="4" >
           <v-card-text class="white--text pt-0">
             <h3>List Your Show</h3>
             <p> Got a Show, Event, Activity or great experience? <br />
@@ -90,8 +90,18 @@ export default {
   data: () => ({
     icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
   }),
+  myStyle:{
+            backgroundColor:"grey" 
+            }
 };
 </script>
 
 <style>
+.hire {
+  width: 100%;
+  height: 300px;
+  padding-top: 300px;
+  background-color: #e9e9e9;
+  margin-top: 0px;
+}
 </style>

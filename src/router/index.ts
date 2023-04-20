@@ -36,7 +36,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/DashTest.vue')
   },
   {
-    path: '/eventdesc',
+    path: '/eventspage/:id',
     name: 'eventdesc',
     component: () => import('../views/EventDesc.vue')
   }

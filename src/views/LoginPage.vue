@@ -16,14 +16,17 @@
                         >Sign in to SymBooth</h1>
                         <div class="text-center mt-4">
                           <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-facebook-f</v-icon>
+                            <v-icon>mdi-facebook</v-icon>
                           </v-btn>
 
                           <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-google-plus-g</v-icon>
+                            <v-icon>mdi-google</v-icon>
                           </v-btn>
                           <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-linkedin-in</v-icon>
+                            <v-icon>mdi-twitter</v-icon>
+                          </v-btn>
+                          <v-btn class="mx-2" fab color="black" outlined>
+                            <v-icon>mdi-linkedin</v-icon>
                           </v-btn>
                         </div>
                         <h4 class="text-center mt-4">Ensure your email for registration</h4>
@@ -83,14 +86,16 @@
                         <h1 class="text-center display-2 teal--text text--accent-3">Create Account</h1>
                         <div class="text-center mt-4">
                           <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-facebook-f</v-icon>
-                          </v-btn>
-
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-google-plus-g</v-icon>
+                            <v-icon>mdi-facebook</v-icon>
                           </v-btn>
                           <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-linkedin-in</v-icon>
+                            <v-icon>mdi-google</v-icon>
+                          </v-btn>
+                          <v-btn class="mx-2" fab color="black" outlined>
+                            <v-icon>mdi-twitter</v-icon>
+                          </v-btn>
+                          <v-btn class="mx-2" fab color="black" outlined>
+                            <v-icon>mdi-linkedin</v-icon>
                           </v-btn>
                         </div>
                         <h4 class="text-center mt-4">Ensure your email for registration</h4>

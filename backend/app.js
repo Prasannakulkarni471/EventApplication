@@ -34,13 +34,9 @@ const start = async() => {
 
 start()
 
-app.get("/insert", async (req, res) => {
+app.post("/insert", async (req, res) => {
     try {
-      const model = await studentModel.create({
-        name: "rehan-siddiqui",
-        email: "ishansiddiqui123@gmail.com",
-        password: "no1password"
-      });
+      const model = await studentModel.create(req.body);
       res.status(200).send({ msg: "Inserted to DB" });
     } catch (error) {
       console.log(error);

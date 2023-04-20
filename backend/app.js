@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 mongoose.set('strictQuery', false)
 
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 const channelModel = require('./models/channel')
 const studentModel = require('./models/student')
 const StudentModel = require('./models/student')
@@ -33,6 +36,19 @@ const start = async() => {
 }
 
 start()
+
+// app.get("/insert", async (req, res) => {
+//     try {
+//       var model = new StudentModel;
+//       model.name = 'ishan-siddiqui'
+//       model.email = 'ishansiddiqui123@gmail.com'
+//       model.password = 'nopassword'
+//       res.status(200).send({ msg: "Inserted to DB" });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   });
+
 
 app.post("/insert", async (req, res) => {
     try {
@@ -68,15 +84,53 @@ app.post("/insert", async (req, res) => {
 
 app.get("/delete", async (req, res) => {
     try {
-      const result = await StudentModel.deleteOne({ name: 'ishan-siddiqui' });
+      const result = await studentModel.deleteOne({ name: 'ishan-siddiqui' });
       return res.status(200).send({ msg: `${result.deletedCount} document(s) deleted` });
     } catch (error) {
       console.log(error);
       return res.status(500).send({ error });
     }
-  });
-  
+  });  
   
 
-
+app.get("/login", async (req, res) =>{
+    try {
+              var model = new StudentModel;
+              model.name = 'ishan-siddiqui'
+              model.email = 'ishansiddiqui123@gmail.com'
+              model.password = 'nopassword'
+              res.status(200).send({ msg: "Inserted to DB" });
+            } catch (error) {
+              console.log(error);
+            }
+})
+//Handling user login
+app.post("/login", async function(req, res){
+    try {
+        var model = new StudentModel;
+        // check if the user exists
+        const user = await StudentModel.findOne({ username: req.body.username });
+        if (user) {
+          //check if password matches
+          const result = req.body.password === user.password;
+          if (result) {
+            res.render("secret");
+          } else {
+            res.status(400).json({ error: "password doesn't match" });
+          }
+        } else {
+          res.status(400).json({ error: "User doesn't exist" });
+        }
+      } catch (error) {
+        res.status(400).json({ error });
+      }
+});
+  
+//Handling user logout 
+// app.get("/logout", function (req, res) {
+//     req.logout(function(err) {
+//         if (err) { return next(err); }
+//         res.redirect('/');
+//       });
+// });
   

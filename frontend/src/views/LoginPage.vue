@@ -14,21 +14,7 @@
                         <h1
                           class="text-center display-2 teal--text text--accent-3"
                         >Sign in to SymBooth</h1>
-                        <div class="text-center mt-4">
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-facebook</v-icon>
-                          </v-btn>
-
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-google</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-twitter</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-linkedin</v-icon>
-                          </v-btn>
-                        </div>
+                        
                         <h4 class="text-center mt-4">Ensure your email for registration</h4>
                         <v-form>
                           <v-text-field
@@ -59,7 +45,7 @@
                         <h1 class="text-center display-1">Hello, Friend!</h1>
                         <h5
                           class="text-center"
-                        >Enter your personal details and start journay with us</h5>
+                        >Enter your personal details and start journey with us</h5>
                       </v-card-text>
                       <div class="text-center">
                         <v-btn rounded outlined dark @click="step++">SIGN UP</v-btn>
@@ -84,25 +70,12 @@
                     <v-col cols="12" md="8">
                       <v-card-text class="mt-12">
                         <h1 class="text-center display-2 teal--text text--accent-3">Create Account</h1>
-                        <div class="text-center mt-4">
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-facebook</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-google</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-twitter</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>mdi-linkedin</v-icon>
-                          </v-btn>
-                        </div>
                         <h4 class="text-center mt-4">Ensure your email for registration</h4>
                         <v-form>
                           <v-text-field
                             label="Name"
                             name="Name"
+                            v-model="username"
                             prepend-icon="person"
                             type="text"
                             color="teal accent-3"
@@ -110,6 +83,7 @@
                           <v-text-field
                             label="Email"
                             name="Email"
+                            v-model="email"
                             prepend-icon="email"
                             type="text"
                             color="teal accent-3"
@@ -119,6 +93,7 @@
                             id="password"
                             label="Password"
                             name="password"
+                            v-model="password"
                             prepend-icon="lock"
                             type="password"
                             color="teal accent-3"
@@ -126,7 +101,7 @@
                         </v-form>
                       </v-card-text>
                       <div class="text-center mt-n5">
-                        <router-link :to="{ path: '/EventsPage' }"><v-btn rounded color="teal accent-3" dark>SIGN UP</v-btn></router-link>
+                        <v-btn rounded color="teal accent-3" dark @click="signup()">SIGN UP</v-btn>
                       </div>
                     </v-col>
                   </v-row>
@@ -142,13 +117,23 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data: () => ({
-    step: 1
+    step: 1,
+    username:"",
+    password: "",
+    email: ""
   }),
   props: {
     source: String
-  }
+  },
+  methods: {
+    async signup(){
+      await axios.post("http://localhost:5000/insert", {name: this.username, password: this.password, email: this.email})
+      this.$router.push('/eventspage')
+    }
+  },
 };
 </script>
 

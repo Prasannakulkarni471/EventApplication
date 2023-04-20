@@ -61,7 +61,7 @@
           </v-card-text>
           <v-toolbar flat color="transparent">
             <v-spacer></v-spacer>
-            <v-icon large>fab fa-cc-visa</v-icon>
+            <v-icon large>mdi-paypal</v-icon>
             <v-icon class="mx-2" large>fab fa-cc-paypal</v-icon>
           </v-toolbar>
         </v-col>

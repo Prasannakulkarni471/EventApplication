@@ -9,7 +9,7 @@
         </h1>
 
         <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-        <SidebarLink to="/services" icon="fas fa-columns">Services</SidebarLink>
+        <SidebarLink to="/servicespage" icon="fas fa-columns">Services</SidebarLink>
         <SidebarLink to="/page" icon="fas fa-chart-bar">Page</SidebarLink>
         <SidebarLink to="/user" icon="fas fa-users">User</SidebarLink>
         <SidebarLink to="/contact" icon="fas fa-image">Contact</SidebarLink>

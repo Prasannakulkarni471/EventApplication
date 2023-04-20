@@ -1,107 +1,90 @@
-<template >
-  <v-footer dark padless class="hire" >
-    <v-card flat tile class="black white--text py-12 px-5" width="100%" >
-      <v-row >
-        <v-col cols="12" sm="4" >
-          <v-card-text class="white--text pt-0">
-            <h3>List Your Show</h3>
-            <p> Got a Show, Event, Activity or great experience? <br />
-              Partner with us & get listed on SYMBOOTH EVENTS</p>
-              <br />
-            <v-btn color="grey">Contack Today</v-btn>
-          </v-card-text>
-          <v-card-text class="grey--text pt-0">
-            For organizing your personalised evnet at your college ?
-                Just Fill Up some details and publish your event at our site,
-                And let others know about it and book it! 
-          </v-card-text>
-          <v-toolbar flat color="transparent">
-            <h5>Guides</h5>
-            <h5 class="ml-4">Terms of Use</h5>
-            <h5 class="ml-4">Privacy Policy</h5>
-          </v-toolbar>
-          <v-card-text class="grey--text"> &#169; 2021 -2022 </v-card-text>
-        </v-col>
-        <v-col cols="12" sm="2">
-          <v-card-text class="white--text pt-0">
-            <h3>Get Help</h3>
-          </v-card-text>
-          <v-card-text class="grey--text"> Order Status </v-card-text>
-          <v-card-text class="grey--text mt-n4">
-            Shipping and Delivery
-          </v-card-text>
-          <v-card-text class="grey--text mt-n4"> Payment Options </v-card-text>
-          <v-card-text class="grey--text mt-n4"> Contact US </v-card-text>
-        </v-col>
-        <v-col cols="12" sm="2">
-          <v-card-text class="white--text pt-0">
-            <h3>About US</h3>
-          </v-card-text>
-          <v-card-text class="grey--text"> Careers </v-card-text>
-          <v-card-text class="grey--text mt-n4"> Sustainability </v-card-text>
-          <v-card-text class="grey--text mt-n4"> Service </v-card-text>
-          <v-card-text class="grey--text mt-n4">
-            CA Supply Chains Act
-          </v-card-text>
-        </v-col>
-        <v-col cols="12" sm="4">
-          
-          <v-card-text class="grey--text mt-14"> Payment Methods: </v-card-text>
-          <v-card-text class="pt-0">
-            <v-btn
-              v-for="icon in icons"
-              :key="icon"
-              class="mx-1 white--text"
-              icon
-            >
-              <v-icon size="24px">
-                {{ icon }}
-              </v-icon>
-            </v-btn>
-          </v-card-text>
-          <v-toolbar flat color="transparent">
-            <v-spacer></v-spacer>
-            <v-icon large>fab fa-cc-visa</v-icon>
-            <v-icon class="mx-2" large>fab fa-cc-paypal</v-icon>
-          </v-toolbar>
-        </v-col>
-      </v-row>
-      <v-row >
-      <v-card-text align="center">
-       <v-btn
-         v-for="icon in icons"
-         :key="icon"
-         class="mx-4 white--text"
-         icon
-       >
-         <v-icon size="24px">
-           {{ icon }}
-           
-         </v-icon>
-       </v-btn>
-     </v-card-text>
-    </v-row>
-    </v-card>
-  </v-footer>
-</template>
+<template>
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+          <div>
+              <div>
+                  <h3>Login</h3>
+                  <hr />
+              </div>
+              <div class="alert alert-danger" v-if="error">
+                  {{ error }}
+              </div>
+              <form @submit.prevent="onLogin()">
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input
+                          type="text"
+                          class="form-control"
+                          v-model.trim="email"
+                      />
+                      <div class="error" v-if="errors.email">
+                          {{ errors.email }}
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Password</label>
+                      <input
+                          type="password"
+                          class="form-control"
+                          v-model.trim="password"
+                      />
+                      <div class="error" v-if="errors.password">
+                          {{ errors.password }}
+                      </div>
+                  </div>
 
+                  <div class="my-3">
+                      <button type="submit" class="btn btn-primary">
+                          Login
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</template>
 <script>
+
+import SignupValidations from '../services/SignupValidations';
+
 export default {
-  data: () => ({
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
-  }),
-  myStyle:{
-            backgroundColor:"grey" 
-            }
+  data() {
+      return {
+          email: '',
+          password: '',
+          errors: [],
+          error: '',
+      };
+  },
+  methods: {
+
+      async onLogin() {
+          let validations = new SignupValidations(
+              this.email,
+              this.password,
+          );
+
+          this.errors = validations.checkValidations();
+          if (this.errors.length) {
+              return false;
+          }
+          this.error = '';
+
+          this.showLoading(true);
+          //Login check
+          try {
+              await this.login({
+                  email: this.email,
+                  password: this.password,
+              });
+          } catch (e) {
+              this.error = e;
+              this.showLoading(false);
+          }
+
+          this.showLoading(false);
+          this.$router.push('/posts');
+      },
+  },
 };
 </script>
-
-<style>
-.hire {
-  width: 100%;
-  height: 300px;
-  padding-top: 300px;
-  background-color: #e9e9e9;
-  margin-top: 0px;
-}
-</style>

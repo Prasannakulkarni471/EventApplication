@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import booksList from '@/data/books.json'
+import booksList from '../data/book.json'
     export default {
         data: () => ({
             id: 0,

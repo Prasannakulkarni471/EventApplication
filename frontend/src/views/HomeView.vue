@@ -8,8 +8,7 @@
                 <div style="position: relative" class="mt-16">
                 <h1 class="text-grey">Hello,welcome to</h1>
                 <h1 class="text-white">SymBooth</h1>
-                <span class="text-indigo">Demo-1</span><br />
-                <v-btn title dark class="text-indigo mt-8" variant="outlined">Contact Us</v-btn>
+                <span class="text-white">Final Demo</span><br />
               </div>
               </v-col>
               <v-col cols="2">
@@ -31,7 +30,7 @@
             <v-col cols="12" id="about">
               <div class="child">
                 <v-btn
-                  icon="fas fa-laptop"
+                  icon="mdi-laptop"
                   color="#FBDF7E"
                   class="text-white"
                 ></v-btn>
@@ -43,7 +42,7 @@
               </div>
               <div class="child">
                 <v-btn
-                  icon="fas fa-mobile-alt"
+                  icon="mdi-cellphone"
                   color="#FBDF7E"
                   class="text-white"
                 ></v-btn>
@@ -55,7 +54,7 @@
               </div>
               <div class="child">
                 <v-btn
-                  icon="fas fa-camera"
+                  icon="mdi-camera"
                   color="#FBDF7E"
                   class="text-white"
                 ></v-btn>
@@ -70,15 +69,7 @@
           <v-divider></v-divider>
         </div>
       </v-col>
-      <v-col cols="12" sm="12" id="services">
-        <div class="d-flex justify-center mb-6">
-          <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
-          <v-btn class="mr-2" variant="tonal">Web Design</v-btn>
-          <v-btn class="mr-2" variant="tonal">Front Design</v-btn>
-          <v-btn class="mr-2" variant="tonal"> Photography</v-btn>
-          <v-btn variant="tonal"> Illustration</v-btn>
-        </div>
-      </v-col>
+      
         <v-col cols="12" class="imgHover">
           <v-row class="fill-height" align="center" justify="center">
             <template v-for="(item, i) in items" :key="i">
@@ -145,15 +136,15 @@
         <div class="hire">
           <v-row>
             <v-col cols="12" sm="8">
-              <h1 class="mt-9">Wanna Create an Event!!</h1>
+              <h1 class="mt-9">Wanna Join us on Picturous Events!!</h1>
               <p class="text-grey">
-                For organizing your personalised evnet at your college ?
-                Just Fill Up some details and publish your event at our site,
+                For Joining with up fill your minor informations!! 
+                Just Fill Up some details and head start to your services,
                 And let others know about it and book it! 
               </p>
             </v-col>
             <v-col cols="12" sm="4">
-              <v-btn color="#FBDF7E" class="mt-15">Organize Event</v-btn>
+              <router-link :to="{ path: '/LoginPage' }"><v-btn color="grey" class="mt-15">SignUP</v-btn></router-link>
             </v-col>
           </v-row>
         </div>
@@ -179,8 +170,8 @@
                 variant="outlined"
               ></v-btn
               ><br />
-              <span class="text-caption">00235 - 6521 </span> <br />
-              <span class="text-caption">00235 - 6521 </span> <br />
+              <span class="text-caption">+91 88053 - 33613 </span> <br />
+              <span class="text-caption">+91 00235 - 65212 </span> <br />
               <v-btn
                 icon="mdi-mail"
                 color=""
@@ -188,8 +179,8 @@
                 variant="outlined"
               ></v-btn
               ><br />
-              <span class="text-caption">symeveinfo@gmail.com </span> <br />
-              <span class="text-caption">symeveinfo@gmail.com </span> <br />
+              <span class="text-caption">symboothtech@gmail.com </span> <br />
+              <span class="text-caption">symboothinfo@gmail.com </span> <br />
             </div>
           </v-col>
           <v-col cols="12" sm="8">
@@ -238,8 +229,9 @@
 import { defineComponent } from 'vue';
 
 // Components
-import NavBar from '@/components/NavBar.vue'
-import FooterBar from '@/components/FooterBar.vue'
+import NavBar from '../components/NavBar.vue'
+
+import FooterBar from '../components/FooterBar.vue'
 export default defineComponent({
   name: 'HomeView',
   setup(){

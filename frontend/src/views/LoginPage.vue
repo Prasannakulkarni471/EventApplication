@@ -22,7 +22,7 @@
                             name="Email"
 
                             v-model="email"
-                            prepend-icon="email"
+                            
 
                             prepend-icon="mdi-email"
                             type="text"
@@ -35,7 +35,7 @@
                             name="password"
 
                             v-model="password"
-                            prepend-icon="lock"
+                            
                             prepend-icon="mdi-lock"
                             type="password"
                             color="teal accent-3"

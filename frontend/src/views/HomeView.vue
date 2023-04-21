@@ -1,8 +1,10 @@
 <template>
   <v-app id="home">
-    <NavBar  />
     <v-container fluid>
+
         <div class="head">
+          
+          <NavBar  />
             <v-row>
               <v-col cols="5">
                 <div style="position: relative" class="mt-16">
@@ -16,60 +18,18 @@
                   <v-icon>fas fa-angle-double-down</v-icon>
                 </div>
               </v-col>
-              <v-col cols="5">
-                <div style="position: relative;z-index: 9999;" class="mt-16">
-                  <v-img src="i3.jpg" contain max-height="300"></v-img>
-                </div>
-              </v-col>
+              
             </v-row>
         </div>
+        <v-row>
+          <v-col>
+            <h1> </h1>
+            <h1> </h1>
+            <br/>
+            <br/>
+          </v-col>
+        </v-row>
         
-      <v-col cols="12" class="padd" id="portfolio">
-        <div class="first" id="project">
-          <v-row>
-            <v-col cols="12" id="about">
-              <div class="child">
-                <v-btn
-                  icon="mdi-laptop"
-                  color="#FBDF7E"
-                  class="text-white"
-                ></v-btn>
-                <h3 class="ml-3 mt-4">Web Design</h3>
-                <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
-                </p>
-              </div>
-              <div class="child">
-                <v-btn
-                  icon="mdi-cellphone"
-                  color="#FBDF7E"
-                  class="text-white"
-                ></v-btn>
-                <h3 class="ml-3 mt-4">App Design</h3>
-                <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
-                </p>
-              </div>
-              <div class="child">
-                <v-btn
-                  icon="mdi-camera"
-                  color="#FBDF7E"
-                  class="text-white"
-                ></v-btn>
-                <h3 class="ml-3 mt-4">Creative Design</h3>
-                <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
-                </p>
-              </div>
-            </v-col>
-          </v-row>
-          <v-divider></v-divider>
-        </div>
-      </v-col>
-      
         <v-col cols="12" class="imgHover">
           <v-row class="fill-height" align="center" justify="center">
             <template v-for="(item, i) in items" :key="i">
@@ -149,6 +109,52 @@
           </v-row>
         </div>
       </v-col>
+      <v-col cols="12" class="padd" id="portfolio">
+        <div class="first" id="project">
+          <v-row>
+            <v-col cols="12" id="about">
+              <div class="child">
+                <v-btn
+                  icon="mdi-laptop"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">Web Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+              <div class="child">
+                <v-btn
+                  icon="mdi-cellphone"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">App Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+              <div class="child">
+                <v-btn
+                  icon="mdi-camera"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">Creative Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+            </v-col>
+          </v-row>
+          <v-divider></v-divider>
+        </div>
+      </v-col>
+
       <v-col cols="12" sm="12" class="px-16" id="contact">
         <v-row>
           <v-col cols="12" sm="4">
@@ -285,8 +291,8 @@ export default defineComponent({
   left: 0;
   height: 100%;
   width: 50%;
-  background-image: url("https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&w=1000&q=80");
-  transform: skew(0deg, 6deg);
+  background-image: url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80");
+  transform: skew(0deg, 0deg);
 }
 .head:after{
   content: " ";
@@ -296,7 +302,7 @@ export default defineComponent({
   height: 100%;
   width: 50%;
   background-image: url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80");
-  transform: skew(0deg, -6deg);
+  transform: skew(0deg, 0deg);
 }
 .egg{
   display: block;

@@ -8,7 +8,7 @@
         <v-col cols="12" sm="12">
           <v-breadcrumbs :items="items" class="justify-center mt-n7" dark>
             <template v-slot:divider>
-              <v-icon color="#7C92FE">fs-right-arrow</v-icon>
+              <v-icon color="#7C92FE">mdi-right-arrow</v-icon>
             </template>
           </v-breadcrumbs>
         </v-col>
@@ -25,9 +25,10 @@
                 </v-btn>
                 <h5 class="white--text mt-8">CBC Event</h5>
                 <h3 class="white--text mt-5">OWASP TOP 10 VULNERABILITIES</h3>
-                <v-btn rounded color="#4C9CDB" dark class="withoutupercase px-8 mt-10">
+                <router-link :to="{ path: '/eventspage/'+13 }"><v-btn rounded color="black" dark class="withoutupercase px-8 mt-10">
                   More Info
-                </v-btn>
+                </v-btn></router-link>
+                
               </v-col>
               <v-col cols="12" sm="8">
                 <img src="https://t4.ftcdn.net/jpg/01/98/83/09/360_F_198830916_gFI9RYVWj7iHiJgmb83j7xVtbNWLpcsL.jpg"
@@ -45,9 +46,9 @@
                 </v-btn>
                 <h6 class="white--text mt-8">SIT, PUNE</h6>
                 <h3 class="white--text mt-5">REVERS 2K23 Biggest Event in SIT</h3>
-                <v-btn rounded color="#8375E7" dark class="withoutupercase px-8 mt-3">
+                <router-link :to="{ path: '/eventspage/'+14 }"><v-btn rounded color="black" dark class="withoutupercase px-8 mt-3">
                   More Info
-                </v-btn>
+                </v-btn></router-link>
               </v-col>
               <v-col cols="12" sm="6">
                 <img
@@ -110,12 +111,12 @@ export default {
       {
         text: "User",
         disabled: false,
-        href: "UserPage",
+        href: "/UserPage",
       },
       {
         text: "Contact",
         disabled: false,
-        href: "ContactUs",
+        href: "/ContactUs",
       },
     ],
     clothes: [

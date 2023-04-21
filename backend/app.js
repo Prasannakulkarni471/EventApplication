@@ -1,4 +1,4 @@
-require('dotenv').config('.env')
+require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -21,7 +21,7 @@ app.use(express.static("uploads"))
 
 const start = async() => {
   try {
-    await mongoose.connect(process.env.DB_URI, {
+    await mongoose.connect("mongodb+srv://ishansiddiqui123:12345@symbooth.ncgzyvk.mongodb.net/?retryWrites=true&w=majority", {
       useNewUrlParser: true,
     })
     .then(() => {console.log('Connected to the Database!')})
@@ -104,17 +104,18 @@ app.get("/login", async (req, res) =>{
               console.log(error);
             }
 })
+
 //Handling user login
 app.post("/login", async function(req, res){
     try {
         var model = new StudentModel;
         // check if the user exists
-        const user = await StudentModel.findOne({ username: req.body.username });
+        const user = await StudentModel.findOne({ email: req.body.email });
         if (user) {
           //check if password matches
           const result = req.body.password === user.password;
           if (result) {
-            res.render("secret");
+            res.send("Login successful");
           } else {
             res.status(400).json({ error: "password doesn't match" });
           }

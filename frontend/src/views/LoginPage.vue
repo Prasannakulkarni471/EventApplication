@@ -20,6 +20,10 @@
                           <v-text-field
                             label="Email"
                             name="Email"
+
+                            v-model="email"
+                            prepend-icon="email"
+
                             prepend-icon="mdi-email"
                             type="text"
                             color="teal accent-3"
@@ -29,6 +33,9 @@
                             id="password"
                             label="Password"
                             name="password"
+
+                            v-model="password"
+                            prepend-icon="lock"
                             prepend-icon="mdi-lock"
                             type="password"
                             color="teal accent-3"
@@ -37,7 +44,7 @@
                         <h3 class="text-center mt-4">Forgot your password ?</h3>
                       </v-card-text>
                       <div class="text-center mt-3">
-                        <router-link :to="{ path: '/EventsPage' }"><v-btn rounded color="teal accent-3" dark>SIGN IN</v-btn></router-link>
+                        <v-btn rounded color="teal accent-3" dark @click="login()">SIGN IN</v-btn>
                       </div>
                     </v-col>
                     <v-col cols="12" md="4" class="teal accent-3">
@@ -132,7 +139,22 @@ export default {
     async signup(){
       await axios.post("http://localhost:5000/insert", {name: this.username, password: this.password, email: this.email})
       this.$router.push('/eventspage')
-    }
+    },
+    async login() {
+      try {
+        const response = await axios.post("http://localhost:5000/login", {
+          email: this.email,
+          password: this.password
+        })
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        this.$router.push("/eventspage"); // Redirect to the events page
+      } catch (error) {
+        console.error(error);
+        // Handle error here
+      }
+    },
+
   },
 };
 </script>

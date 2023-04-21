@@ -20,8 +20,11 @@
                           <v-text-field
                             label="Email"
                             name="Email"
+
                             v-model="email"
                             prepend-icon="email"
+
+                            prepend-icon="mdi-email"
                             type="text"
                             color="teal accent-3"
                           />
@@ -30,8 +33,10 @@
                             id="password"
                             label="Password"
                             name="password"
+
                             v-model="password"
                             prepend-icon="lock"
+                            prepend-icon="mdi-lock"
                             type="password"
                             color="teal accent-3"
                           />
@@ -78,7 +83,7 @@
                             label="Name"
                             name="Name"
                             v-model="username"
-                            prepend-icon="person"
+                            prepend-icon="mdi-account"
                             type="text"
                             color="teal accent-3"
                           />
@@ -86,7 +91,7 @@
                             label="Email"
                             name="Email"
                             v-model="email"
-                            prepend-icon="email"
+                            prepend-icon="mdi-email"
                             type="text"
                             color="teal accent-3"
                           />
@@ -96,7 +101,7 @@
                             label="Password"
                             name="password"
                             v-model="password"
-                            prepend-icon="lock"
+                            prepend-icon="mdi-lock"
                             type="password"
                             color="teal accent-3"
                           />

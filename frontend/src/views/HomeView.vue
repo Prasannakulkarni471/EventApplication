@@ -1,15 +1,16 @@
 <template>
   <v-app id="home">
-    <NavBar  />
     <v-container fluid>
+
         <div class="head">
+          
+          <NavBar  />
             <v-row>
               <v-col cols="5">
                 <div style="position: relative" class="mt-16">
                 <h1 class="text-grey">Hello,welcome to</h1>
                 <h1 class="text-white">SymBooth</h1>
-                <span class="text-indigo">Demo-1</span><br />
-                <v-btn title dark class="text-indigo mt-8" variant="outlined">Contact Us</v-btn>
+                <span class="text-white">Final Demo</span><br />
               </div>
               </v-col>
               <v-col cols="2">
@@ -17,68 +18,18 @@
                   <v-icon>fas fa-angle-double-down</v-icon>
                 </div>
               </v-col>
-              <v-col cols="5">
-                <div style="position: relative;z-index: 9999;" class="mt-16">
-                  <v-img src="i3.jpg" contain max-height="300"></v-img>
-                </div>
-              </v-col>
+              
             </v-row>
         </div>
+        <v-row>
+          <v-col>
+            <h1> </h1>
+            <h1> </h1>
+            <br/>
+            <br/>
+          </v-col>
+        </v-row>
         
-      <v-col cols="12" class="padd" id="portfolio">
-        <div class="first" id="project">
-          <v-row>
-            <v-col cols="12" id="about">
-              <div class="child">
-                <v-btn
-                  icon="fas fa-laptop"
-                  color="#FBDF7E"
-                  class="text-white"
-                ></v-btn>
-                <h3 class="ml-3 mt-4">Web Design</h3>
-                <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
-                </p>
-              </div>
-              <div class="child">
-                <v-btn
-                  icon="fas fa-mobile-alt"
-                  color="#FBDF7E"
-                  class="text-white"
-                ></v-btn>
-                <h3 class="ml-3 mt-4">App Design</h3>
-                <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
-                </p>
-              </div>
-              <div class="child">
-                <v-btn
-                  icon="fas fa-camera"
-                  color="#FBDF7E"
-                  class="text-white"
-                ></v-btn>
-                <h3 class="ml-3 mt-4">Creative Design</h3>
-                <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
-                </p>
-              </div>
-            </v-col>
-          </v-row>
-          <v-divider></v-divider>
-        </div>
-      </v-col>
-      <v-col cols="12" sm="12" id="services">
-        <div class="d-flex justify-center mb-6">
-          <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
-          <v-btn class="mr-2" variant="tonal">Web Design</v-btn>
-          <v-btn class="mr-2" variant="tonal">Front Design</v-btn>
-          <v-btn class="mr-2" variant="tonal"> Photography</v-btn>
-          <v-btn variant="tonal"> Illustration</v-btn>
-        </div>
-      </v-col>
         <v-col cols="12" class="imgHover">
           <v-row class="fill-height" align="center" justify="center">
             <template v-for="(item, i) in items" :key="i">
@@ -145,19 +96,65 @@
         <div class="hire">
           <v-row>
             <v-col cols="12" sm="8">
-              <h1 class="mt-9">Wanna Create an Event!!</h1>
+              <h1 class="mt-9">Wanna Join us on Picturous Events!!</h1>
               <p class="text-grey">
-                For organizing your personalised evnet at your college ?
-                Just Fill Up some details and publish your event at our site,
+                For Joining with up fill your minor informations!! 
+                Just Fill Up some details and head start to your services,
                 And let others know about it and book it! 
               </p>
             </v-col>
             <v-col cols="12" sm="4">
-              <v-btn color="#FBDF7E" class="mt-15">Organize Event</v-btn>
+              <router-link :to="{ path: '/LoginPage' }"><v-btn color="grey" class="mt-15">SignUP</v-btn></router-link>
             </v-col>
           </v-row>
         </div>
       </v-col>
+      <v-col cols="12" class="padd" id="portfolio">
+        <div class="first" id="project">
+          <v-row>
+            <v-col cols="12" id="about">
+              <div class="child">
+                <v-btn
+                  icon="mdi-laptop"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">Web Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+              <div class="child">
+                <v-btn
+                  icon="mdi-cellphone"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">App Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+              <div class="child">
+                <v-btn
+                  icon="mdi-camera"
+                  color="#FBDF7E"
+                  class="text-white"
+                ></v-btn>
+                <h3 class="ml-3 mt-4">Creative Design</h3>
+                <p class="text-grey ml-3 mt-4 text-caption">
+                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
+                  <br />consectetur adipis
+                </p>
+              </div>
+            </v-col>
+          </v-row>
+          <v-divider></v-divider>
+        </div>
+      </v-col>
+
       <v-col cols="12" sm="12" class="px-16" id="contact">
         <v-row>
           <v-col cols="12" sm="4">
@@ -179,8 +176,8 @@
                 variant="outlined"
               ></v-btn
               ><br />
-              <span class="text-caption">00235 - 6521 </span> <br />
-              <span class="text-caption">00235 - 6521 </span> <br />
+              <span class="text-caption">+91 88053 - 33613 </span> <br />
+              <span class="text-caption">+91 00235 - 65212 </span> <br />
               <v-btn
                 icon="mdi-mail"
                 color=""
@@ -188,8 +185,8 @@
                 variant="outlined"
               ></v-btn
               ><br />
-              <span class="text-caption">symeveinfo@gmail.com </span> <br />
-              <span class="text-caption">symeveinfo@gmail.com </span> <br />
+              <span class="text-caption">symboothtech@gmail.com </span> <br />
+              <span class="text-caption">symboothinfo@gmail.com </span> <br />
             </div>
           </v-col>
           <v-col cols="12" sm="8">
@@ -238,8 +235,9 @@
 import { defineComponent } from 'vue';
 
 // Components
-import NavBar from '@/components/NavBar.vue'
-import FooterBar from '@/components/FooterBar.vue'
+import NavBar from '../components/NavBar.vue'
+
+import FooterBar from '../components/FooterBar.vue'
 export default defineComponent({
   name: 'HomeView',
   setup(){
@@ -293,8 +291,8 @@ export default defineComponent({
   left: 0;
   height: 100%;
   width: 50%;
-  background-image: url("https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&w=1000&q=80");
-  transform: skew(0deg, 6deg);
+  background-image: url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80");
+  transform: skew(0deg, 0deg);
 }
 .head:after{
   content: " ";
@@ -304,7 +302,7 @@ export default defineComponent({
   height: 100%;
   width: 50%;
   background-image: url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80");
-  transform: skew(0deg, -6deg);
+  transform: skew(0deg, 0deg);
 }
 .egg{
   display: block;

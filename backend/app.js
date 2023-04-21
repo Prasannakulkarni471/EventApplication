@@ -93,17 +93,17 @@ app.get("/delete", async (req, res) => {
   });  
   
 
-app.get("/login", async (req, res) =>{
-    try {
-              var model = new StudentModel;
-              model.name = 'ishan-siddiqui'
-              model.email = 'ishansiddiqui123@gmail.com'
-              model.password = 'nopassword'
-              res.status(200).send({ msg: "Inserted to DB" });
-            } catch (error) {
-              console.log(error);
-            }
-})
+// app.get("/login", async (req, res) =>{
+//     try {
+//               var model = new StudentModel;
+//               model.name = 'ishan-siddiqui'
+//               model.email = 'ishansiddiqui123@gmail.com'
+//               model.password = 'nopassword'
+//               res.status(200).send({ msg: "Inserted to DB" });
+//             } catch (error) {
+//               console.log(error);
+//             }
+// })
 
 //Handling user login
 app.post("/login", async function(req, res){
@@ -127,6 +127,33 @@ app.post("/login", async function(req, res){
       }
 });
   
+// app.get('/check-email', async (req, res) => {
+//   try {
+//     const user = await StudentModel.findOne({ email: req.body.email });
+//     if (user) {
+//       res.send(true)
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'mongo not able to check email' });
+//   }
+// });
+
+app.post('/check-email', async (req, res) => {
+  try {
+    const user = await StudentModel.findOne({ email: req.body.email });
+    if (user) {
+      res.status(400).json({ message: 'Email already exists' });
+    } else {
+      res.status(200).json({ message: 'Email does not exist' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'MongoDB not able to check email' });
+  }
+});
+
+
 //Handling user logout 
 // app.get("/logout", function (req, res) {
 //     req.logout(function(err) {

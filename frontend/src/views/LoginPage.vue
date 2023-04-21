@@ -24,6 +24,7 @@
                             prepend-icon="email"
                             type="text"
                             color="teal accent-3"
+                            :rules="[v => !!v || 'Email is required', v => /.+@.+\..+/.test(v) || 'Email must be valid']"
                           />
 
                           <v-text-field
@@ -40,6 +41,7 @@
                       </v-card-text>
                       <div class="text-center mt-3">
                         <v-btn rounded color="teal accent-3" dark @click="login()">SIGN IN</v-btn>
+                        <div v-if="errorMessage">{{ errorMessage }}</div>
                       </div>
                     </v-col>
                     <v-col cols="12" md="4" class="teal accent-3">
@@ -81,11 +83,13 @@
                             prepend-icon="person"
                             type="text"
                             color="teal accent-3"
+                            :rules="[rules.required]"
                           />
                           <v-text-field
                             label="Email"
                             name="Email"
                             v-model="email"
+                            :rules="[rules.required, v => /.+@.+\..+/.test(v) || 'Email must be valid']"
                             prepend-icon="email"
                             type="text"
                             color="teal accent-3"
@@ -99,6 +103,7 @@
                             prepend-icon="lock"
                             type="password"
                             color="teal accent-3"
+                            :rules="[rules.required, rules.minLength, rules.password]"
                           />
                         </v-form>
                       </v-card-text>
@@ -119,13 +124,22 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import axios from 'axios'
 export default {
   data: () => ({
+    rules: {
+      required: (v) => !!v || 'This field is required',
+      minLength: (v) => v.length >= 8 || 'Minimum length is 8 characters',
+      maxLength: (v) => v.length <= 20 || 'Maximum length is 20 characters',
+      password:  (v) => /.*[@#$%^&+=!.].*/.test(v) || 'Password must contain at least one special character (@#$%^&+=!)'
+  
+    },
     step: 1,
     username:"",
     password: "",
-    email: ""
+    email: "",
+    errorMessage: ''
   }),
   props: {
     source: String
@@ -145,10 +159,16 @@ export default {
         localStorage.setItem("token", token);
         this.$router.push("/eventspage"); // Redirect to the events page
       } catch (error) {
-        console.error(error);
-        // Handle error here
-      }
+    if (error.response && error.response.status === 400) {
+      this.errorMessage = "Incorrect username/password. Please try again.";
+    }
+      else {
+      this.errorMessage = "An error occurred while logging in. Please try again later.";
+    }
+    console.log(this.errorMessage);
+  }
     },
+
 
   },
 };

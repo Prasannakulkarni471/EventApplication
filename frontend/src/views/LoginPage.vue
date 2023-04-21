@@ -20,8 +20,11 @@
                           <v-text-field
                             label="Email"
                             name="Email"
+
                             v-model="email"
-                            prepend-icon="email"
+                            
+
+                            prepend-icon="mdi-email"
                             type="text"
                             color="teal accent-3"
                             :rules="[v => !!v || 'Email is required', v => /.+@.+\..+/.test(v) || 'Email must be valid']"
@@ -31,8 +34,10 @@
                             id="password"
                             label="Password"
                             name="password"
+
                             v-model="password"
-                            prepend-icon="lock"
+                            
+                            prepend-icon="mdi-lock"
                             type="password"
                             color="teal accent-3"
                           />
@@ -80,7 +85,7 @@
                             label="Name"
                             name="Name"
                             v-model="username"
-                            prepend-icon="person"
+                            prepend-icon="mdi-account"
                             type="text"
                             color="teal accent-3"
                             :rules="[rules.required]"
@@ -100,7 +105,7 @@
                             label="Password"
                             name="password"
                             v-model="password"
-                            prepend-icon="lock"
+                            prepend-icon="mdi-lock"
                             type="password"
                             color="teal accent-3"
                             :rules="[rules.required, rules.minLength, rules.password]"

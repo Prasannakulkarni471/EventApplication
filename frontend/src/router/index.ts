@@ -39,6 +39,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/eventspage/:id',
     name: 'eventdesc',
     component: () => import('../views/EventDesc.vue')
+  },
+  {
+    path: '/servicespage',
+    name: 'servicespage',
+    component: () => import('../views/ServicesPage.vue')
+  },
+  {
+    path: '/userpage',
+    name: 'userpage',
+    component: () => import('../views/UserPage.vue')
   }
 ]
 

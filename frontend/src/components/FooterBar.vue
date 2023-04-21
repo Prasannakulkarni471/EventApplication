@@ -1,19 +1,19 @@
 <template >
-  <v-footer dark padless >
-    <v-card flat tile class="black white--text py-12 px-5" width="100%" >
-      <v-row >
-        <v-col cols="12" sm="4" >
+  <v-footer dark padless>
+    <v-card flat tile class="black white--text py-12 px-5" width="100%">
+      <v-row>
+        <v-col cols="12" sm="4">
           <v-card-text class="white--text pt-0">
             <h3>List Your Show</h3>
             <p> Got a Show, Event, Activity or great experience? <br />
               Partner with us & get listed on SYMBOOTH EVENTS</p>
-              <br />
+            <br />
             <v-btn color="grey">Contack Today</v-btn>
           </v-card-text>
           <v-card-text class="grey--text pt-0">
             For organizing your personalised evnet at your college ?
-                Just Fill Up some details and publish your event at our site,
-                And let others know about it and book it! 
+            Just Fill Up some details and publish your event at our site,
+            And let others know about it and book it!
           </v-card-text>
           <v-toolbar flat color="transparent">
             <h5>Guides</h5>
@@ -45,42 +45,32 @@
           </v-card-text>
         </v-col>
         <v-col cols="12" sm="4">
-          
+
           <v-card-text class="grey--text mt-14"> Payment Methods: </v-card-text>
-          <v-card-text class="pt-0">
-            <v-btn
-              v-for="icon in icons"
-              :key="icon"
-              class="mx-1 white--text"
-              icon
-            >
-              <v-icon size="24px">
-                {{ icon }}
-              </v-icon>
-            </v-btn>
-          </v-card-text>
+
           <v-toolbar flat color="transparent">
-            <v-spacer></v-spacer>
-            <v-icon large>fab fa-cc-visa</v-icon>
-            <v-icon class="mx-2" large>fab fa-cc-paypal</v-icon>
+
+            <v-card-text align="center">
+              <v-btn v-for="icon in picons" :key="icon" class="mx-4 white--text" icon>
+                <v-icon size="24px">
+                  {{ icon }}
+
+                </v-icon>
+              </v-btn>
+            </v-card-text>
           </v-toolbar>
         </v-col>
       </v-row>
-      <v-row >
-      <v-card-text align="center">
-       <v-btn
-         v-for="icon in icons"
-         :key="icon"
-         class="mx-4 white--text"
-         icon
-       >
-         <v-icon size="24px">
-           {{ icon }}
-           
-         </v-icon>
-       </v-btn>
-     </v-card-text>
-    </v-row>
+      <v-row>
+        <v-card-text align="center">
+          <v-btn v-for="icon in icons" :key="icon" class="mx-4 white--text" icon>
+            <v-icon size="24px">
+              {{ icon }}
+
+            </v-icon>
+          </v-btn>
+        </v-card-text>
+      </v-row>
     </v-card>
   </v-footer>
 </template>
@@ -89,10 +79,11 @@
 export default {
   data: () => ({
     icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    picons: ["mdi-cash", "mdi-credit-card", "mdi-google","mdi-account"]
   }),
-  myStyle:{
-            backgroundColor:"grey" 
-            }
+  myStyle: {
+    backgroundColor: "grey"
+  }
 };
 </script>
 

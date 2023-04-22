@@ -9,7 +9,7 @@
        <router-link :to="{ path: '/LoginPage' }"><v-btn text class="text-white" >Login/Signup</v-btn></router-link>
        <router-link :to="{ path: '/ServicesPage' }"><v-btn text class="text-white" >Services</v-btn></router-link>
        <v-btn text @click="scroll('page')" >Page</v-btn>
-       <v-btn text @click="scroll('blog')" >Blog</v-btn>
+
        <v-btn text @click="scroll('contact')" >Contact</v-btn>
     </v-app-bar>
 </template>

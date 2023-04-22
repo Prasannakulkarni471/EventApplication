@@ -10,7 +10,7 @@
 
         <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
         <SidebarLink to="/servicespage" icon="fas fa-columns">Services</SidebarLink>
-        <SidebarLink to="/page" icon="fas fa-chart-bar">Page</SidebarLink>
+        
         <SidebarLink to="/userpage" icon="fas fa-users">User</SidebarLink>
         <SidebarLink to="/contactus" icon="fas fa-image">Contact</SidebarLink>
 

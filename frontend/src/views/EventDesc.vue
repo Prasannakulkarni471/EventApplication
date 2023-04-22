@@ -19,10 +19,7 @@
                     </p>
                     <router-link :to="{ path: '/bookpage' }"><v-btn tile color="#0fdc80" class="text-white" dark> Book Event </v-btn></router-link>
                 </v-col>
-                <v-col>
-                    <h3>Price : {{ books.price }}</h3>
-                    <h3>Discount : {{ books.sold }}</h3>
-                </v-col>
+                
                 <v-col cols="12" class="padd">
                     <div class="first" id="project">
                         <v-row>
@@ -73,14 +70,14 @@
                                     <v-row>
                                         <v-col cols="12" class="childcol">
                                             <div class="child2 mButton padding bgColor1">
-                                                <h1 style="color:#0fdc80;" class="red--text text--darken-4">60+</h1>
-                                                <p style="color:lightgrey;" class="grey--text">Others</p>
+                                                <h1 style="color:#0fdc80;" class="red--text text--darken-4">{{books.price}}</h1>
+                                                <p style="color:lightgrey;" class="grey--text">Price</p>
                                             </div>
                                         </v-col>
                                         <v-col cols="12" class="childcol">
                                             <div class="child2 padding bgColor1">
-                                                <h1 style="color:#0fdc80;" class="red--text text--darken-4">122+</h1>
-                                                <p style="color:lightgrey;" class="grey--text">Students</p>
+                                                <h1 style="color:#0fdc80;" class="red--text text--darken-4">{{books.sold}}</h1>
+                                                <p style="color:lightgrey;" class="grey--text">Discount</p>
                                             </div>
                                         </v-col>
                                     </v-row>

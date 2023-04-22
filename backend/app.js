@@ -10,6 +10,8 @@ const jwt = require('jsonwebtoken');
 const channelModel = require('./models/channel')
 const studentModel = require('./models/student')
 const StudentModel = require('./models/student')
+const ContactModel = require('./models/contact')
+
 
 const app = express()
 const port = process.env.PORT || 5000 // Change the port number to 5000
@@ -152,6 +154,18 @@ app.post('/check-email', async (req, res) => {
     res.status(500).json({ message: 'MongoDB not able to check email' });
   }
 });
+
+app.post("/contact-us", async function (req, res) {
+  try {
+    const model = await ContactModel.create(req.body);
+    res.status(200).send({ msg: "Inserted to DB" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "mongo not able to insert contact" });
+  }
+});
+
+
 
 
 //Handling user logout 

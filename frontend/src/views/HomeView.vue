@@ -193,32 +193,23 @@
             <h1 class="mt-8">Send your message</h1>
             <v-divider></v-divider>
             <span class="text-caption"
-              >Anything you wanna ask, you can send your query here!!<br />
-              Feel free to contact us, and suggest any suggestions if any.<br />
-              Our Team will work on it as early as possible.</span
+            >Anything you wanna ask, you can send your query here!!<br />
+            Feel free to contact us, and suggest any suggestions if any.<br />
+            Our Team will work on it as early as possible.</span
             >
+            <v-form ref="contactForm">
             <v-row class="mt-10">
               <v-col cols="12" sm="6">
-                <v-text-field
-                  label="Name"
-                  persistent-hint
-                  variant="outlined"
-                ></v-text-field>
+                <v-text-field v-model="name" required :rules="[rules.required]"  label="Name" persistent-hint variant="outlined"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
-                <v-text-field
-                  label="Phone No"
-                  persistent-hint
-                  variant="outlined"
-                ></v-text-field>
+                <v-text-field v-model="phoneNo" :rules="[rules.required]" label="Phone No" persistent-hint variant="outlined"></v-text-field>
               </v-col>
             </v-row>
-            <v-textarea
-              label="Message"
-              persistent-hint
-              variant="outlined"
-            ></v-textarea>
-            <v-btn color="#FBDF7E" class="mt-2">Submit Now</v-btn>
+            <v-textarea v-model="message" :rules="[rules.required]" label="Message" persistent-hint variant="outlined"></v-textarea>
+            <div v-if="contactMessage">{{ contactMessage }}</div>
+            <v-btn color="#FBDF7E" class="mt-2" @click="submitMessage()" >Submit Now</v-btn>
+          </v-form>
           </v-col>
         </v-row>
       </v-col>
@@ -233,6 +224,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import axios from 'axios'
 
 // Components
 import NavBar from '../components/NavBar.vue'
@@ -265,11 +257,40 @@ export default defineComponent({
       ],
     }
   },
+  data: () => ({
+    rules: {
+      required: (v : string) => !!v || 'This field is required',
+    },
+    name: '',
+    phoneNo: '',
+    message: '',
+    contactMessage: ''
+  }),
+
+
   components: {
     NavBar,
     FooterBar
   },
-});
+
+  methods: {
+    async submitMessage() {
+  try {
+    const response = await axios.post("http://localhost:5000/contact-us", {name: this.name, phoneNo: this.phoneNo, message: this.message})
+
+    console.log(response.data.message);
+    if (response) {
+      this.contactMessage = "Form has been sent";
+    }
+    (this.$refs.contactForm as HTMLFormElement).reset();
+
+  } catch (error) {
+    console.error(error);
+    // show error message to the user
+  }
+}
+}
+})
 </script>
 <style scoped>
 .v-container{

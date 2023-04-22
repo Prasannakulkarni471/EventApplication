@@ -8,7 +8,7 @@
             <p> Got a Show, Event, Activity or great experience? <br />
               Partner with us & get listed on SYMBOOTH EVENTS</p>
             <br />
-            <v-btn color="grey">Contack Today</v-btn>
+            <router-link :to="{ path: '/contactus' }"><v-btn color="grey">Contact Today</v-btn></router-link>
           </v-card-text>
           <v-card-text class="grey--text pt-0">
             For organizing your personalised evnet at your college ?
@@ -26,9 +26,9 @@
           <v-card-text class="white--text pt-0">
             <h3>Get Help</h3>
           </v-card-text>
-          <v-card-text class="grey--text"> Order Status </v-card-text>
+          <v-card-text class="grey--text"> Event Status </v-card-text>
           <v-card-text class="grey--text mt-n4">
-            Shipping and Delivery
+            Booking and Services
           </v-card-text>
           <v-card-text class="grey--text mt-n4"> Payment Options </v-card-text>
           <v-card-text class="grey--text mt-n4"> Contact US </v-card-text>
@@ -37,12 +37,12 @@
           <v-card-text class="white--text pt-0">
             <h3>About US</h3>
           </v-card-text>
-          <v-card-text class="grey--text"> Careers </v-card-text>
-          <v-card-text class="grey--text mt-n4"> Sustainability </v-card-text>
-          <v-card-text class="grey--text mt-n4"> Service </v-card-text>
-          <v-card-text class="grey--text mt-n4">
-            CA Supply Chains Act
-          </v-card-text>
+          <v-card-text class="grey--text"> Prasanna Kulkarni </v-card-text>
+          <v-card-text class="grey--text mt-n4"> Ishan Siddiqui </v-card-text>
+          <v-card-text class="grey--text mt-n4"> Ishan Sinha </v-card-text>
+          <v-card-text class="grey--text mt-n4">Savi</v-card-text>
+          <v-card-text class="grey--text mt-n4">Tanya Singh</v-card-text>
+          
         </v-col>
         <v-col cols="12" sm="4">
 

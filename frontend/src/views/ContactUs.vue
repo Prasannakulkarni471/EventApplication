@@ -222,7 +222,7 @@
                         </div></router-link>
                     </v-col>
                 </v-row>
-                <FooterBar />
+                
             </div>
 
         </div>
@@ -232,11 +232,11 @@
     </div>
 </template>
 <script>
-import FooterBar from '../components/FooterBar'
+
 import NavBar from '../components/NavBar.vue'
 export default {
     components: {
-        FooterBar,
+
         NavBar
     },
 }

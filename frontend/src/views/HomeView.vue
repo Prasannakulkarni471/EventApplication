@@ -121,8 +121,8 @@
                 ></v-btn>
                 <h3 class="ml-3 mt-4">Web Design</h3>
                 <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
+                  Hope you will like our website <br />it is responsive and 
+                  <br />able to work on evert device
                 </p>
               </div>
               <div class="child">
@@ -133,8 +133,8 @@
                 ></v-btn>
                 <h3 class="ml-3 mt-4">App Design</h3>
                 <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
+                  Hope you will like our website <br />it is responsive and 
+                  <br />able to work on evert device
                 </p>
               </div>
               <div class="child">
@@ -145,8 +145,8 @@
                 ></v-btn>
                 <h3 class="ml-3 mt-4">Creative Design</h3>
                 <p class="text-grey ml-3 mt-4 text-caption">
-                  Lorem, ipsum dolor sit amet <br />consectetur adipisicing
-                  <br />consectetur adipis
+                  Hope you will like our website <br />it is responsive and 
+                  <br />able to work on evert device
                 </p>
               </div>
             </v-col>
@@ -237,22 +237,22 @@ export default defineComponent({
       slider2: 50,
       items: [
         {
-          id:1,img: "i3.jpg",text: "CyberSecurity Event",organizer: "SOCS", date: "13 Mar 2023",
+          id:1,img: "1.png",text: "CyberSecurity Event",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          id:2,img: "i4.jpg",text: "TechFest",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
+          id:2,img: "2.png",text: "TechFest",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
         {
-          id:3,img: "i5.jpg",text: "Reverb",organizer: "SIT, Pune", date: "16 Mar 2023",
+          id:3,img: "3.png",text: "Reverb",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          id:4,img: "i6.jpeg",text: "AIML Techfest",organizer: "SOCS", date: "13 Mar 2023",
+          id:4,img: "4.png",text: "AIML Techfest",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          id:5,img: "i9.jpg",text: "CyberSecurity Event",organizer: "SIT, Pune", date: "16 Mar 2023",
+          id:5,img: "5.png",text: "CyberSecurity Event",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          id:6,img: "i8.jpg",text: "CyberSecurity Event",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
+          id:6,img: "6.png",text: "CyberSecurity Event",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
       ],
     }

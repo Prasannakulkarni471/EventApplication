@@ -177,14 +177,36 @@ app.post('/create-event', async (req, res) => {
   }
 });
 
+app.post('/register-event', async (req, res) => {
+  try {
+    const { firstName, lastName, email, comments } = req.body;
+    const newParticipant = new Participants ({
+      firstName,
+      lastName,
+      email,
+      comments
+    })
+    await newParticipant.save();
+    res.status(201).send('Form submitted successfully');
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('An error occurred while submitting the form');
+  }
+  });
+
 // app.post('/register-event', async (req, res) => {
 //   try {
-//     const { firstName, lastName, email, comments } = req.body;
-//     const newParticipant = new Participants ({
+//     const { eventId, firstName, lastName, email, comments } = req.body;
+//     const event = await EventModel.findById({eventId});
+//     if (!event) {
+//       return res.status(404).send('Event not found');
+//     }
+//     const newParticipant = new Participants({
 //       firstName,
 //       lastName,
 //       email,
-//       comments
+//       comments,
+//       event: event._id
 //     });
 //     await newParticipant.save();
 //     res.status(201).send('Form submitted successfully');
@@ -192,29 +214,7 @@ app.post('/create-event', async (req, res) => {
 //     console.log(error);
 //     res.status(500).send('An error occurred while submitting the form');
 //   }
-//   });
-
-app.post('/register-event', async (req, res) => {
-  try {
-    const { eventId, firstName, lastName, email, comments } = req.body;
-    const event = await Event.findById(eventId);
-    if (!event) {
-      return res.status(404).send('Event not found');
-    }
-    const newParticipant = new Participants({
-      firstName,
-      lastName,
-      email,
-      comments,
-      event: event._id
-    });
-    await newParticipant.save();
-    res.status(201).send('Form submitted successfully');
-  } catch (error) {
-    console.log(error);
-    res.status(500).send('An error occurred while submitting the form');
-  }
-});
+// });
 
 
 

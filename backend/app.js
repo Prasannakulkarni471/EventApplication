@@ -11,6 +11,8 @@ const channelModel = require('./models/channel')
 const studentModel = require('./models/student')
 const StudentModel = require('./models/student')
 const ContactModel = require('./models/contact')
+const EventModel = require('./models/events')
+const Participants = require('./models/participants')
 
 
 const app = express()
@@ -162,6 +164,55 @@ app.post("/contact-us", async function (req, res) {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "mongo not able to insert contact" });
+  }
+});
+
+app.post('/create-event', async (req, res) => {
+  try {
+    const event = await EventModel.create(req.body);
+    res.status(201).json({ id: event._id, ...req.body });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to create event' });
+  }
+});
+
+// app.post('/register-event', async (req, res) => {
+//   try {
+//     const { firstName, lastName, email, comments } = req.body;
+//     const newParticipant = new Participants ({
+//       firstName,
+//       lastName,
+//       email,
+//       comments
+//     });
+//     await newParticipant.save();
+//     res.status(201).send('Form submitted successfully');
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send('An error occurred while submitting the form');
+//   }
+//   });
+
+app.post('/register-event', async (req, res) => {
+  try {
+    const { eventId, firstName, lastName, email, comments } = req.body;
+    const event = await Event.findById(eventId);
+    if (!event) {
+      return res.status(404).send('Event not found');
+    }
+    const newParticipant = new Participants({
+      firstName,
+      lastName,
+      email,
+      comments,
+      event: event._id
+    });
+    await newParticipant.save();
+    res.status(201).send('Form submitted successfully');
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('An error occurred while submitting the form');
   }
 });
 

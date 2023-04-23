@@ -2,11 +2,11 @@
   <div class="whole-page">
     <div class="form-container">
       <h3>Please fill in the following details</h3>
-      <form @submit.prevent="submitForm">
+      <form ref="eventForm" @submit.prevent="submitForm">
         
-        <div class="form-group">
+        <div class="form-group" >
           <label for="name">Name</label>
-          <input type="text" id="name" v-model="formData.name" />
+          <input type="text" id="name" v-model="formData.name"/>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
@@ -28,6 +28,8 @@
           <label for="event-desc">Event Description</label>
           <input class="form-group-desc" type="text" id="event-desc" height="300" v-model="formData.eventdesc" />
         </div>
+        <label v-if="confirmMessage">{{ confirmMessage }}</label>
+        <label v-if="timer">{{ timer }}</label>
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -35,24 +37,53 @@
   </template>
   
   <script>
+  import { defineComponent } from 'vue';
+  import axios from 'axios'
   export default {
-    data() {
-      return {
+    
+    data: () => ({
+      rules: {
+      required: (v) => !!v || 'This field is required',
+      },
         formData: {
           name: '',
           email: '',
           phone: '',
           eventRegion: '',
           eventCity: '',
-          eventdesc:''
-        }
-      };
-    },
+          eventdesc:'',
+        },
+        confirmMessage: '',
+        timer: ''
+
+    }),
     methods: {
-      submitForm() {
-        // Handle form submission logic here
-        console.log('Form data:', this.formData);
+      async submitForm() {
+        try {
+          // Handle form submission logic here
+        const response = await axios.post('http://localhost:5000/create-event', this.formData)
+        console.log('Form data:', this.formData)
+        console.log(response)
+        console.log(response.status)
         // You can send the form data to a backend API for processing
+        this.confirmMessage = "Event Request has been created successfuly! \n Redirecting to events page...";
+        console.log(this.confirmMessage)
+        this.$refs.eventForm.reset();
+
+        let countDown = 5;
+    const timer = setInterval(() => {
+      countDown--;
+      console.log(countDown);
+      this.timer = countDown;
+      if (countDown === 0) {
+        clearInterval(timer);
+        this.$router.push('/eventspage');
+      }
+    }, 1000);
+
+        } catch (error) {
+          console.log(error)
+        }
       }
     }
   };

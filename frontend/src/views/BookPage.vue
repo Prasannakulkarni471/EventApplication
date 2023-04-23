@@ -5,32 +5,31 @@
     <h3>Fill out the form below!</h3>
   </div>
   <div class="row body">
-    <form action="#">
+    <form @submit.prevent="submitForm">
       <ul>
         
         <li>
           <p class="left">
             <label for="first_name">First name</label>
-            <input type="text" name="first_name" placeholder="John" />
+            <input type="text" name="first_name" placeholder="John" v-model="formData.firstName" />
           </p>
           <p class="pull-right">
             <label for="last_name">Last name</label>
-            <input type="text" name="last_name" placeholder="Smith" />      
+            <input type="text" name="last_name" placeholder="Smith" v-model="formData.lastName"/>      
           </p>
         </li>
         
         <li>
           <p>
             <label for="email">Email <span class="req">*</span></label>
-            <input type="email" name="email" placeholder="john.smith@gmail.com" />
+            <input type="email" name="email" placeholder="john.smith@gmail.com" v-model="formData.email"/>
           </p>
         </li>        
         <li><div class="divider"></div></li>
         <li>
           <label for="comments">Comments</label>
-          <textarea cols="46" rows="3" name="comments"></textarea>
+          <textarea cols="46" rows="3" name="comments" v-model="formData.comments"></textarea>
         </li>
-        <!-- Add here more inputs -->
         
         <li>
           <input class="btn btn-submit" type="submit" value="Submit" />
@@ -44,8 +43,38 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    
+  data() {
+    return {
+      formData: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        comments: ''
+      }
+    }
+  },
+
+  methods: {
+    async submitForm() {
+      try {
+        const response = await axios.post('http://localhost:5000/register-event', this.formData);
+        console.log(response);
+        
+        // Reset form data on successful submission
+        this.formData = {
+          firstName: '',
+          lastName: '',
+          email: '',
+          comments: ''
+        };
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 }
 </script>
 

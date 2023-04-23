@@ -16,11 +16,11 @@ const participantSchema = new mongoose.Schema({
   comments: {
     type: String
   },
-  event: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Event',
-    required: true
-  }
+  // event: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'EventModel',
+  //   required: true
+  // }
 });
 
 const Participants = mongoose.model('Participant', participantSchema);

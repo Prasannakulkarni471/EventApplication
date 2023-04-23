@@ -32,8 +32,11 @@
         </li>
         
         <li>
+          <input type="hidden" name="event_id" v-model="formData.eventId" />
           <input class="btn btn-submit" type="submit" value="Submit" />
-          <small>or press <strong>enter</strong></small>
+
+          <label v-if="confirmMessage">{{ confirmMessage }}</label>
+        <label v-if="timer">{{ timer }}</label>
         </li>
         
       </ul>
@@ -52,17 +55,23 @@ export default {
         firstName: '',
         lastName: '',
         email: '',
-        comments: ''
-      }
+        comments: '',
+
+      },
+      confirmMessage: '',
+        timer: ''
     }
   },
 
   methods: {
     async submitForm() {
       try {
+        console.log(this.formData.eventId)
         const response = await axios.post('http://localhost:5000/register-event', this.formData);
         console.log(response);
-        
+
+        this.confirmMessage = "Event Booking has been done successfuly! \n Redirecting to events page...";
+
         // Reset form data on successful submission
         this.formData = {
           firstName: '',
@@ -70,6 +79,19 @@ export default {
           email: '',
           comments: ''
         };
+        
+
+        let countDown = 5
+        const timer = setInterval(() => {
+      countDown--;
+      console.log(countDown);
+      this.timer = countDown;
+      if (countDown === 0) {
+        clearInterval(timer);
+        this.$router.push('/eventspage');
+      }
+    }, 1000);
+
       } catch (error) {
         console.log(error);
       }

@@ -5,12 +5,14 @@
         <div class="head">
           
           <NavBar  />
-            <v-row>
-              <v-col cols="5">
-                <div style="position: relative" class="mt-16">
-                <h1 class="text-grey">Hello,welcome to</h1>
-                <h1 class="text-white">SymBooth</h1>
-                <span class="text-white">Final Demo</span><br />
+            
+        </div>
+        <v-row>
+              <v-col cols="12" style="background-color:lightgrey;">
+                <div style="position: center" class="mt-16" align="center" >
+                <h1 class="text-darkgrey">Hello,welcome to</h1>
+                <h1 class="text-darkgrey">SymBooth</h1>
+                <span class="text-darkgrey">Final Presentation</span><br />
               </div>
               </v-col>
               <v-col cols="2">
@@ -20,7 +22,6 @@
               </v-col>
               
             </v-row>
-        </div>
         <v-row>
           <v-col>
             <h1> </h1>
@@ -37,7 +38,7 @@
                 <v-hover v-slot="{isHovering, props}">
                   <v-card :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
                     <router-link :to="{ path: '/eventspage/'+item.id }"><v-img :src="item.img" height="225px" cover></v-img></router-link>
-                    <v-card-title>Event {{ i+1 }}</v-card-title>
+                    <v-card-title> {{ item.text }}</v-card-title>
                     <v-card-subtitle>
                     Organizer : {{item.organizer}} <br /> {{item.date}}
                     </v-card-subtitle>
@@ -237,22 +238,22 @@ export default defineComponent({
       slider2: 50,
       items: [
         {
-          id:1,img: "1.png",text: "CyberSecurity Event",organizer: "SOCS", date: "13 Mar 2023",
+          id:1,img: "1.jpg",text: "CyberSecurity Event",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          id:2,img: "2.png",text: "TechFest",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
+          id:2,img: "2.jpg",text: "TechFest",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
         {
-          id:3,img: "3.png",text: "Reverb",organizer: "SIT, Pune", date: "16 Mar 2023",
+          id:3,img: "3.jpg",text: "Reverb",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          id:4,img: "4.png",text: "AIML Techfest",organizer: "SOCS", date: "13 Mar 2023",
+          id:4,img: "4.jpg",text: "AIML Techfest",organizer: "SOCS", date: "13 Mar 2023",
         },
         {
-          id:5,img: "5.png",text: "CyberSecurity Event",organizer: "SIT, Pune", date: "16 Mar 2023",
+          id:5,img: "5.jpg",text: "CyberSecurity Event",organizer: "SIT, Pune", date: "16 Mar 2023",
         },
         {
-          id:6,img: "6.png",text: "CyberSecurity Event",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
+          id:6,img: "6.jpg",text: "CyberSecurity Event",organizer: "Symbiosis Institue of Technology", date: "14 Mar 2023",
         },
       ],
     }

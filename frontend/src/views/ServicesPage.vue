@@ -6,7 +6,7 @@
         <v-container fluid>
             <v-row>
                 <v-col cols="6">
-                    <v-img src="1.png" contain max-height="500"></v-img>
+                    <v-img src="7.jpg" contain max-height="500"></v-img>
                 </v-col>
                 <v-col cols="6">
                     <h5 class="red--text text--darken-4 top">Hello We are SymBooth</h5>
@@ -103,12 +103,12 @@
                 </v-col>
                 <v-col md="3" offset-md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="3.png" contain max-height=""></v-img>
+                        <v-img src="3.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="2.png" contain max-height=""></v-img>
+                        <v-img src="2.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3" offset-md="3">
@@ -127,12 +127,12 @@
                 </v-col>
                 <v-col md="3" offset-md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="4.png" contain max-height=""></v-img>
+                        <v-img src="4.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="5.png" contain max-height=""></v-img>
+                        <v-img src="5.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3" offset-md="3">

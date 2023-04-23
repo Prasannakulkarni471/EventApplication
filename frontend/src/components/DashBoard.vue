@@ -69,7 +69,7 @@
                 <v-hover v-slot="{isHovering, props}">
                   <v-card :elevation="isHovering ? 12: 2" :class="{'on-hover' : isHovering}" v-bind="props">
                     <router-link :to="{ path: '/eventspage/'+clothe.id }"><v-img :src="clothe.image" height="225px" cover></v-img></router-link>
-                    <v-card-title>Event {{ i+1 }}</v-card-title>
+                    <v-card-title>{{ clothe.title }}</v-card-title>
                     <v-card-subtitle>
                     Organizer : {{clothe.class}} <br /> {{clothe.class}}
                     </v-card-subtitle>
@@ -124,8 +124,8 @@ export default {
           id: 1,
           class: "pa-0",
           sold: "-20%",
-          image: "1.png",
-          title: "Event 1",
+          image: "1.jpg",
+          title: "Nuclear Horizon",
           price: "$ 145.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -133,8 +133,8 @@ export default {
           id: 2,
           class: "pa-0",
           sold: "-30%",
-          image: "2.png",
-          title: "Event 2",
+          image: "2.jpg",
+          title: "Reside musics and standup layoff",
           price: "$ 599.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -142,8 +142,8 @@ export default {
           id: 3,
           class: "py-0 pl-0",
           sold: "-17%",
-          image: "3.png",
-          title: "Event 3",
+          image: "3.jpg",
+          title: "SymBooth Launch",
           price: "$ 190.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -152,8 +152,8 @@ export default {
           id: 4,
           class: "pa-0",
           sold: "-22%",
-          image: "4.png",
-          title: "Event 4",
+          image: "4.jpg",
+          title: "CBC Event",
           price: "$ 220.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -161,8 +161,8 @@ export default {
           id: 5,
           class: "pa-0",
           sold: "-18%",
-          image: "5.png",
-          title: "Nike Air Footscape Magista Flyknit",
+          image: "5.jpg",
+          title: "Music Footscape Magista Flyknit",
           price: "$ 235.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -170,8 +170,8 @@ export default {
           id: 6,
           class: "py-0 pl-0",
           sold: "-40%",
-          image: "6.png",
-          title: "Nike Air Zoom Huarache 2k4",
+          image: "6.jpg",
+          title: "Air Zoom Huarache 2k4",
           price: "$ 190.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -180,8 +180,8 @@ export default {
           id: 7,
           class: "pa-0",
           sold: "-13%",
-          image: "7.png",
-          title: "Jordan Horizon",
+          image: "7.jpg",
+          title: "Tech Horizon",
           price: "$ 230.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -189,8 +189,8 @@ export default {
           id: 8,
           class: "pa-0",
           sold: "-15%",
-          image: "8.png",
-          title: "Air Jordan xx9 Low",
+          image: "8.jpg",
+          title: "AIML Techfest",
           price: "$ 185.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -198,8 +198,8 @@ export default {
           id: 9,
           class: "py-0 pl-0",
           sold: "-10%",
-          image: "9.png",
-          title: "LeBron XIII Premium AS iD",
+          image: "9.jpg",
+          title: "LeBron Premium ",
           price: "$ 265.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -207,8 +207,8 @@ export default {
           id: 10,
           class: "pa-0",
           sold: "-19%",
-          image: "10.png",
-          title: "Air Jordan 1 Retro Hight Nouveau",
+          image: "10.jpg",
+          title: "Retro Hight Nouveau",
           price: "$ 190.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -216,8 +216,8 @@ export default {
           id: 11,
           class: "pa-0",
           sold: "-16%",
-          image: "11.png",
-          title: "Nike Air Presto",
+          image: "11.jpg",
+          title: "Air Presto",
           price: "$ 175.00",
           desc: "Hello this event is going to be one of the awesome events"
         },
@@ -225,8 +225,8 @@ export default {
           id: 12,
           class: "py-0 pl-0",
           sold: "-10%",
-          image: "12.png",
-          title: "KD 8 Premium AS iD",
+          image: "12.jpg",
+          title: "Premium AS iD",
           price: "$ 245.00",
           desc: "Hello this event is going to be one of the awesome events"
         },

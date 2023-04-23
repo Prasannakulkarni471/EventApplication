@@ -111,12 +111,12 @@
                 </v-col>
                 <v-col md="3" offset-md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="../data/3.png" contain max-height=""></v-img>
+                        <v-img src="../data/3.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="../data/2.png" contain max-height=""></v-img>
+                        <v-img src="../data/2.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3" offset-md="3">
@@ -135,12 +135,12 @@
                 </v-col>
                 <v-col md="3" offset-md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="../data/4.png" contain max-height=""></v-img>
+                        <v-img src="../data/4.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3">
                     <v-card class="pa-2 py-12" outlined tile height="250px" color="#1E1E1E">
-                        <v-img src="../data/5.png" contain max-height=""></v-img>
+                        <v-img src="../data/5.jpg" contain max-height=""></v-img>
                     </v-card>
                 </v-col>
                 <v-col md="3" offset-md="3">
